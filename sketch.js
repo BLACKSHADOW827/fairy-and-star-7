@@ -38,11 +38,12 @@ function setup () {
   }
     
   
-    starBody = Bodies.rectangle(6500,100,20,20,star_options)
+    starBody = Bodies.rectangle(650,100,20,20,star_options)
   
     World.add(world,star);
 
-  
+  star.x=starBody.x
+  star.y=starBody.y
   
   
   
@@ -59,8 +60,9 @@ function draw() {
   background("black");
   Engine.update(engine)
   if(keyDown("space")){
-    star.velocityY=10
-     
+    var star_options={
+      isStatic:false}
+      starBody.velocityY=2
     }
     if(keyDown("right")){
       fairy.x=fairy.x+3
@@ -68,13 +70,6 @@ function draw() {
       if(keyDown("left")){
         fairy.x=fairy.x-3
         }
-        if(star.y>515){
-          star.velocityY=0
-        }
-        
-        starBody.x=star.x
-  starBody.y=star.y
-  
   
   
   
